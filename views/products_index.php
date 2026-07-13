@@ -5,9 +5,9 @@
     <title>MVC Practice</title>
 </head>
 <body>
-    <?php foreach($products as $product): ?>
-        <h1><?= htmlspecialchars($product['name']) ?></h1>
-        <p><?= htmlspecialchars($product['description']) ?></p>
+    <?php foreach($products as $merch): ?>
+        <h1><?= htmlspecialchars($merch['name']) ?></h1>
+        <p><?= htmlspecialchars($merch['description']) ?></p>
     <?php endforeach; ?>
 </body>
 </html>

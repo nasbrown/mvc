@@ -1,7 +1,14 @@
 <?php
 
-require 'Controller.php';
+require 'src/controllers/Products.php';
 
-$controller = new Controller();
+$product = new Products();
 
-$controller->index();
+$action = $_GET['action'];
+
+if($action === 'index'){
+    $product->index();
+} else if($action === 'show'){
+    $product->show();
+}
+
