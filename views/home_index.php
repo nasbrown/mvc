@@ -1,0 +1,1 @@
+<h2>Home Index function has been ran</h2>
