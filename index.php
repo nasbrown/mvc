@@ -4,30 +4,27 @@ $action = $_GET['action'];
 
 $controller = $_GET['home'];
 
-$product_object = new stdClass();
-
-$home = new stdClass();
-
-if ($controller === 'products') {
+if ($action === 'index' && $controller === 'products') {
 
     require 'src/controllers/Products.php';
 
     $product_object = new Products;
 
-} elseif ($controller === 'index') {
+    $product_object->index();
+
+} else if ($action === 'show' && $controller === 'index') {
+
+    require 'src/controllers/Products.php';
+
+    $product_object = new Products;
+
+    $product_object->show();
+
+} else if($action === 'home' && $controller === 'homie'){
 
     require 'src/controllers/Home.php';
 
     $home = new Home;
 
-}
-
-if ($action === 'index') {
-
-    $product_object->index();
-
-} else if ($action === 'show') {
-
-    $product_object->show();
-
+    $home->index();
 }
