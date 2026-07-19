@@ -2,29 +2,12 @@
 
 $action = $_GET['action'];
 
-$controller = $_GET['home'];
+$controller = $_GET['controller'];
 
-if ($action === 'index' && $controller === 'products') {
+$controller = ucfirst($controller);
 
-    require 'src/controllers/Products.php';
+require "src/controllers/$controller.php";
 
-    $product_object = new Products;
+$controller_obj = new $controller;
 
-    $product_object->index();
-
-} else if ($action === 'show' && $controller === 'index') {
-
-    require 'src/controllers/Products.php';
-
-    $product_object = new Products;
-
-    $product_object->show();
-
-} else if($action === 'home' && $controller === 'homie'){
-
-    require 'src/controllers/Home.php';
-
-    $home = new Home;
-
-    $home->index();
-}
+$controller_obj->$action();
