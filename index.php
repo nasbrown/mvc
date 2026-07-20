@@ -1,8 +1,12 @@
 <?php
 
-$action = $_GET['action'];
+$path = parse_url($_SERVER['REQUEST_URI'], PHP_URL_PATH);
 
-$controller = $_GET['controller'];
+$segments = explode("/", $path);
+
+$controller = $segments[2];
+
+$action = $segments[3];
 
 $controller = ucfirst($controller);
 
